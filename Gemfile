@@ -31,6 +31,13 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-doc'
+  gem 'rspec-rails', '~> 3.6'
+  gem "factory_bot_rails"
+  gem 'faker'
+  gem 'rails_best_practices'
 end
 
 group :development do
@@ -40,6 +47,20 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
+  gem 'rubocop', require: false
+  gem 'rubocop-rails'
+
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem "awesome_print"
+  gem 'brakeman', :require => false
+  gem 'guard-rspec', require: false
+  gem 'terminal-notifier'
+  gem 'terminal-notifier-guard'
+
+  gem 'letter_opener'
+  gem 'letter_opener_web'
 end
 
 group :test do
@@ -52,3 +73,57 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'mysql2'
+
+gem 'annotate'
+
+# for security
+gem 'rack-attack'
+
+gem 'active_decorator'
+
+gem 'rack-mini-profiler', require: false
+
+gem 'exception_notification'
+gem 'slack-notifier'
+
+gem 'whenever', require: false
+
+# for file upload
+gem 'carrierwave'
+
+# for user
+gem 'devise'
+
+gem 'split', require: 'split/dashboard'
+
+gem 'rails-i18n'
+gem 'devise-i18n-views'
+
+gem 'meta-tags'
+
+gem 'dotenv-rails', require: 'dotenv/rails-now'
+
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+
+gem 'acts-as-taggable-on'
+gem 'cancancan'
+gem 'ransack'
+
+gem 'kaminari'
+
+gem 'chartkick'
+
+gem 'retryable'
+
+gem 'jp_prefecture'
+gem 'jquery-rails'
+
+gem 'font-awesome-rails'
+
+gem 'socialization'
+
+gem 'public_activity'
