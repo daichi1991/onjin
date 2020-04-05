@@ -127,3 +127,5 @@ gem 'font-awesome-rails'
 gem 'socialization'
 
 gem 'public_activity'
+
+gem 'config'
