@@ -1,0 +1,66 @@
+<h2>Sign up</h2>
+
+<%= form_with scope: :creator, local: true do |f| %>
+
+  <div class="field">
+    <%= f.label :姓（公開されません） %><br/>
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :名（公開されません） %><br/>
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :姓カナ（公開されません） %><br/>
+    <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :名カナ（公開されません） %><br/>
+    <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :生年月日（公開されません） %><br/>
+    <%= raw sprintf(
+    f.date_select(
+      :birthday,
+      use_month_numbers: true,
+      start_year:        1930,
+      end_year:          (Time.now.year - 18),
+      default:           Date.new(1989, 1, 1),
+      date_separator:    '%s'),
+      '年 ', '月') + '日' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :郵便番号%>
+    <%= f.text_field :post_code%>
+  </div>
+
+  <div class="field">
+    <%= f.label :都道府県%>
+    <%= f.text_field :prefecture_code, collection: JpPrefecture::Prefecture.all, :value_method => :name, include_blank: '都道府県'%>
+  </div>
+
+  <div class="field">
+    <%= f.label :市区町村%>
+    <%= f.text_field :address_city%>
+  </div>
+
+  <div class="field">
+    <%= f.label :町名%>
+    <%= f.text_field :address_street%>
+  </div>
+
+  <div class="field">
+    <%= f.label :建物名%>
+    <%= f.text_field :address_building%>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>

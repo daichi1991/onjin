@@ -34,6 +34,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable,
          :validatable, :confirmable, :authentication_keys => [:login]
 
+  has_one :creator
+
   def password_required?
    super if confirmed?
   end
