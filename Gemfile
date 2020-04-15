@@ -30,7 +30,6 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'uglifier'
 
-gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'jquery-turbolinks'
 
