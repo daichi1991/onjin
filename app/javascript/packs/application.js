@@ -19,5 +19,5 @@ require("jquery")
 
 import 'bootstrap'
 import '../stylesheets/application.scss'
-
 import './test.js'
+import './postcode.js'
