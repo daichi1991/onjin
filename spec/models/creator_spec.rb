@@ -6,7 +6,7 @@
 #  address_building :string(255)
 #  address_city     :string(255)      not null
 #  address_street   :string(255)      not null
-#  birthday         :string(255)      not null
+#  birthday         :date             not null
 #  first_name       :string(255)      not null
 #  first_name_kana  :string(255)      not null
 #  last_name        :string(255)      not null

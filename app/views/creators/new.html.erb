@@ -1,8 +1,11 @@
 <h2>Sign up</h2>
 
-<script type="text/javascript" src="//jpostal-1006.appspot.com/jquery.jpostal.js"></script>
 
-<%= form_with scope: :creator, local: true do |f| %>
+<%= form_with(url: confirm_creators_path, local: true) do |f| %>
+
+  <% @creator.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
 
   <div class="field">
     <%= f.label :姓（公開されません） %><br/>
@@ -16,12 +19,12 @@
 
   <div class="field">
     <%= f.label :姓カナ（公開されません） %><br/>
-    <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name" %>
+    <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana" %>
   </div>
 
   <div class="field">
     <%= f.label :名カナ（公開されません） %><br/>
-    <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name" %>
+    <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana" %>
   </div>
 
   <div class="field">
@@ -38,13 +41,18 @@
   </div>
 
   <div class="field">
+    <%= f.label :電話番号（公開されません）%><br/>
+    <%= f.text_field :phone_number%>
+  </div>
+
+  <div class="field">
     <%= f.label :郵便番号%>
-    <%= f.text_field :post_code%>
+    <%= f.text_field :postcode%>
   </div>
 
   <div class="field">
     <%= f.label :都道府県%>
-    <%= f.text_field :prefecture_code, collection: JpPrefecture::Prefecture.all, :value_method => :name, include_blank: '都道府県'%>
+    <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, { include_blank: true }%>
   </div>
 
   <div class="field">
@@ -62,7 +70,9 @@
     <%= f.text_field :address_building%>
   </div>
 
+  <%= f.hidden_field :user_id, value: @user.id %>
+
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "入力確認に進む" %>
   </div>
 <% end %>

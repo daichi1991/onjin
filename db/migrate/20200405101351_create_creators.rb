@@ -6,7 +6,7 @@ class CreateCreators < ActiveRecord::Migration[6.0]
       t.string :first_name_kana, null:false
       t.string :last_name, null:false
       t.string :last_name_kana, null:false
-      t.string :birthday, null:false
+      t.date :birthday, null:false
       t.string :phone_number, null:false
       t.integer :postcode, null:false
       t.integer :prefecture_code, null:false

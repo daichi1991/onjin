@@ -1,10 +1,10 @@
 $(function() {
-  $("#creator_post_code").jpostal({
-    postcode : [ "#creator_post_code" ],
+  $("#postcode").jpostal({
+    postcode : [ "#postcode" ],
     address  : {
-                  "#creator_prefecture_code" : "%3",
-                  "#creator_address_city"            : "%4",
-                  "#creator_address_street"          : "%5%6%7"
+                  "#prefecture_code" : "%3",
+                  "#address_city"            : "%4",
+                  "#address_street"          : "%5%6%7"
                 }
   });
 });

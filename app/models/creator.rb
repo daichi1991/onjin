@@ -6,7 +6,7 @@
 #  address_building :string(255)
 #  address_city     :string(255)      not null
 #  address_street   :string(255)      not null
-#  birthday         :string(255)      not null
+#  birthday         :date             not null
 #  first_name       :string(255)      not null
 #  first_name_kana  :string(255)      not null
 #  last_name        :string(255)      not null
@@ -25,6 +25,23 @@
 class Creator < ApplicationRecord
 
   belongs_to :user
+
+
+  validates :user_id, :first_name, :last_name, :first_name_kana, :last_name_kana, :birthday, :phone_number, :postcode, :prefecture_code, :address_city, :address_street,  presence: true
+
+#  with_options presence: true do
+#    validates :first_name
+#    validates :last_name
+#    validates :first_name_kana
+#    validates :last_name_kana
+#    validates :birthday
+#    validates :phone_number
+#    validates :postcode
+#    validates :prefecture_code
+#    validates :address_city
+#    validates :address_street
+#    validates :address_building
+#  end
 
   include JpPrefecture
   jp_prefecture :prefecture_code

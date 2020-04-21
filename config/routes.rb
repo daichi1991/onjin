@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   get 'home/index'
 
-  resources :creators
+  resources :creators, only: [:new, :create] do
+    collection do
+      post :new, path: :new, as: :new, action: :back
+      post :confirm
+    end
+  end
 
   devise_for :users, controllers: {
     registrations: "users/registrations",
