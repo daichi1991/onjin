@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :users, :only => [:show]
+
   devise_for :users, controllers: {
     registrations: "users/registrations",
     confirmations: "users/confirmations"
