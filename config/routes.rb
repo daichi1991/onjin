@@ -19,6 +19,10 @@ Rails.application.routes.draw do
     patch "users/confirm" => "users/confirmations#confirm"
   end
 
+  resources :sounds
+
+  resources :sound_types
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"

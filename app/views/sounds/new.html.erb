@@ -1,0 +1,33 @@
+<%= form_with(url: sounds_path, local: true) do |f| %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title%>
+  </div>
+
+  <div class="field">
+    <%= f.label :type_id %>
+    <%= f.select :type_id,SoundType.all.collect { |p| [ p.type_name, p.id ] }, {} %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description%>
+  </div>
+
+  <div class="field">
+    <%= f.label :tag_list %>
+    <%= f.text_area :tag_list%>
+  </div>
+
+
+  <div class="field">
+    <%= f.radio_button :status, :'0', {:checked => true}%>
+    <%= f.label :status, "非公開" %>
+    <%= f.radio_button :status, :'1' %>
+    <%= f.label :status, "公開" %>
+  </div>
+
+  <%= f.submit nil, class: 'btn btn-primary' %>
+
+<% end %>

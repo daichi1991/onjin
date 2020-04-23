@@ -1,0 +1,10 @@
+<%= form_with(url: sound_types_path, local: true) do |f| %>
+
+  <div class="field">
+    <%= f.label :type_name %>
+    <%= f.text_field :type_name%>
+  </div>
+
+  <%= f.submit nil, class: 'btn btn-primary' %>
+
+<% end %>
