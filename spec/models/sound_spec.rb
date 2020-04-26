@@ -4,6 +4,7 @@
 #
 #  id             :bigint           not null, primary key
 #  description    :text(65535)
+#  sound_file     :string(255)
 #  soundcloud_url :string(255)
 #  status         :integer
 #  title          :string(255)      not null

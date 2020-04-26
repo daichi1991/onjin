@@ -33,11 +33,19 @@ class SoundsController < ApplicationController
   def destroy
   end
 
+  def download
+     @sound = Sound.find(params[:id])
+     # ref: https://github.com/carrierwaveuploader/carrierwave#activerecord
+     filepath = @sound.sound_file.current_path
+     stat = File::stat(filepath)
+     send_file(filepath, :filename => @sound.sound_file_identifier, :length => stat.size)
+  end
+
 
   private
 
   def sound_params
-    params.permit(:title, :type_id, :description, :soundcloud_id, :soundcloud_url, :status, :tag_list)
+    params.permit(:title, :type_id, :description, :soundcloud_id, :soundcloud_url, :status, :sound_file, :tag_list)
   end
 
 end

@@ -7,6 +7,7 @@ class CreateSounds < ActiveRecord::Migration[6.0]
       t.string :soundcloud_id
       t.string :soundcloud_url
       t.integer :status
+      t.string :sound_file
       t.timestamps
     end
   end

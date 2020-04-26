@@ -1,2 +1,7 @@
 <h1>Ajax#index</h1>
 <p id="hoge">赤色になるよ</p>
+
+<% @sounds.each do |sound| %>
+    <%= sound.title %>
+    <%= link_to "ダウンロード", download_sound_path(sound) %>
+<% end %>
