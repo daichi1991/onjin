@@ -45,7 +45,7 @@ class SoundsController < ApplicationController
   private
 
   def sound_params
-    params.permit(:title, :type_id, :description, :soundcloud_id, :soundcloud_url, :status, :sound_file, :tag_list)
+    params.permit(:title, :type_id, :description, :soundcloud_id, :soundcloud_url, :status, :sound_file, :file_name, :tag_list)
   end
 
 end

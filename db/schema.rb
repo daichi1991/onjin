@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 2020_04_23_144427) do
     t.string "soundcloud_url"
     t.integer "status"
     t.string "sound_file"
+    t.string "file_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @sounds = Sound.all
+    @sounds = Sound.where(status: 1)
   end
 end

@@ -1,7 +1,13 @@
-<h1>Ajax#index</h1>
-<p id="hoge">赤色になるよ</p>
+<p>サウンド一覧</p>
 
-<% @sounds.each do |sound| %>
-    <%= sound.title %>
-    <%= link_to "ダウンロード", download_sound_path(sound) %>
+
+<% if @sounds != nil %>
+  <% @sounds.each do |sound| %>
+      <%= sound.title %>
+      <% sound.tag_list.each do |tag|%>
+        <span class="label label-primary"><%= tag %></span>
+      <% end %><br>
+      <%= audio_tag("/uploads/sound/sound_file/#{sound.id}/#{sound.sound_file.identifier}", id: 'player', :controls => true) %>
+      <%= link_to "ダウンロード", download_sound_path(sound) %><br>
+  <% end %>
 <% end %>

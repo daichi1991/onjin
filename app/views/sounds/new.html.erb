@@ -28,8 +28,9 @@
     <%= f.label :status, "公開" %>
   </div>
 
-  <%= f.label "音楽ファイルをアップロード" %><br><%= f.file_field :sound_file %>
-
+  <%= f.label "音楽ファイルをアップロード" %><br>
+  <%= f.file_field :sound_file %>
+  <br>
   <%= f.submit nil, class: 'btn btn-primary' %>
 
 <% end %>
