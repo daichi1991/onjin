@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
   def show
-    @user = User.find(params[:id])
+    if user_signed_in?
+      @user = User.where(id: current_user.id)
+    else
+      render home_index
+    end
   end
 end

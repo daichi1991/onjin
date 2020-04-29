@@ -57,9 +57,5 @@ class User < ApplicationRecord
     end
   end
 
-  validates :username,
-  uniqueness: { case_sensitive: :false },
-  length: { minimum: 4, maximum: 20 }
-
   attr_accessor :login
 end

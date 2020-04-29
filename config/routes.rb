@@ -5,15 +5,19 @@ Rails.application.routes.draw do
   get 'home/index'
 
   devise_for :users, controllers: {
-    registrations: "users/registrations",
-    confirmations: "users/confirmations"
+    confirmations: 'users/confirmations' ,
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
   }
 
-  resources :users, :only => [:show]
-
   devise_scope :user do
+    get "sign_in" => "users/session#new"
+    get "sign_out" => "users/sessions#destroy"
+    get "sign_up" => "users/registrations/new"
     patch "users/confirm" => "users/confirmations#confirm"
   end
+
+  resources :users, :only => [:new, :show]
 
   resources :creators, only: [:new, :create] do
     collection do
