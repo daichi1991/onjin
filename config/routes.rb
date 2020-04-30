@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   resources :users, :only => [:new, :show]
 
-  resources :creators, only: [:new, :create] do
+  resources :creators, only: [:new, :create, :show] do
     collection do
       post :new, path: :new, as: :new, action: :back
       post :confirm

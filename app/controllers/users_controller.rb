@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     if user_signed_in?
-      @user = User.where(id: current_user.id)
+      @user = current_user
     else
       render home_index
     end

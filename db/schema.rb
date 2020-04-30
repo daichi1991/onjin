@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 2020_04_23_144427) do
   end
 
   create_table "sounds", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "creator_id", null: false
     t.string "title", null: false
     t.bigint "type_id", null: false
     t.text "description"

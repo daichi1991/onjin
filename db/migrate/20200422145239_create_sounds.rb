@@ -1,6 +1,7 @@
 class CreateSounds < ActiveRecord::Migration[6.0]
   def change
     create_table :sounds do |t|
+      t.bigint :creator_id, null: false
       t.string :title, null: false
       t.bigint :type_id, null: false
       t.text :description

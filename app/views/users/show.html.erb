@@ -1,2 +1,6 @@
 <p>マイページ</p>
-<%= current_user.id%>
+<%= @user.id%>
+
+<% unless @user.creator.nil? %>
+  <%= link_to "クリエーター用ページ", creator_path(@user.creator.id) %>
+<% end %>

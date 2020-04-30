@@ -18,7 +18,12 @@
 
     <% if user_signed_in? %>
       <p><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></p>
-      <p><%= link_to "クリエーター登録", new_creator_path, method: :get %>
+        <% unless request.path.include?("users/#{current_user.id}")%>
+          <p><%= link_to "マイページ", user_path(current_user.id)%></p>
+        <% end %>
+      <% if current_user.creator.nil? %>
+        <p><%= link_to "クリエーター登録", new_creator_path, method: :get %></p>
+      <% end %>
     <% end %>
     <%= yield %>
 

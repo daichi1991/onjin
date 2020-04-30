@@ -20,7 +20,7 @@ class SoundsController < ApplicationController
 
   def create
     if Sound.create!(sound_params)
-      redirect_to home_index_path
+      redirect_to creator_path(current_user.creator.id)
       flash[:notice] = "登録が完了しました！"
     else
       render :new
@@ -45,7 +45,7 @@ class SoundsController < ApplicationController
   private
 
   def sound_params
-    params.permit(:title, :type_id, :description, :soundcloud_id, :soundcloud_url, :status, :sound_file, :file_name, :tag_list)
+    params.permit(:title, :creator_id, :type_id, :description, :soundcloud_id, :soundcloud_url, :status, :sound_file, :file_name, :tag_list)
   end
 
 end

@@ -23,7 +23,7 @@ class CreatorsController < ApplicationController
 
   def create
     if Creator.create!(creator_params)
-      redirect_to home_index_path
+      redirect_to creator_path(current_user.creator.id)
       flash[:notice] = "登録が完了しました！"
     else
       render :new
@@ -34,6 +34,11 @@ class CreatorsController < ApplicationController
   end
 
   def destroy
+  end
+
+  def show
+    @creator = Creator.find_by(id: current_user.creator.id)
+    @sounds = Sound.where(creator_id: @creator.id)
   end
 
 private
