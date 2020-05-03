@@ -8,25 +8,53 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-
   </head>
 
   <body>
+
+    <nav class="navbar navbar-expand-sm navbar-dark mb-2 navbar--extend" style="background-color:#800000;">
+      <a href="/" class="navbar-brand">ONJIN</a>
+
+      <button class="navbar-toggler" type="button"
+          data-toggle="collapse"
+          data-target="#navmenu1"
+          aria-controls="navmenu1"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navmenu1">
+        <div class="navbar-nav">
+          <form class="form-inline">
+              <div class="form-group">
+                <input type="text" class="form-control" />
+                <button type="submit" class="btn btn-secondary">検索</button>
+              </div>
+          </form>
+          <% if user_signed_in? %>
+            <% unless request.path.include?("users/#{current_user.id}")%>
+              <%= link_to "マイページ", user_path(current_user.id), class: "nav-item nav-link" %>
+            <% end %>
+
+            <% unless request.path.include?("creators/#{current_user.creator.id}")%>
+              <%= link_to "クリエーター用ページ", creator_path(current_user.creator.id), class: "nav-item nav-link" %>
+            <% end %>
+
+            <% if current_user.creator.nil? %>
+              <%= link_to "クリエーター登録", new_creator_path, method: :get, class: "nav-item nav-link"  %>
+            <% end %>
+
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-item nav-link" %>
+          <% end %>
+        </div>
+      </div>
+    </nav>
+
     <script type="text/javascript" src="//jpostal-1006.appspot.com/jquery.jpostal.js"></script>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <% if user_signed_in? %>
-      <p><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></p>
-        <% unless request.path.include?("users/#{current_user.id}")%>
-          <p><%= link_to "マイページ", user_path(current_user.id)%></p>
-        <% end %>
-      <% if current_user.creator.nil? %>
-        <p><%= link_to "クリエーター登録", new_creator_path, method: :get %></p>
-      <% end %>
-    <% end %>
     <%= yield %>
-
 
   </body>
 </html>

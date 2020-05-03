@@ -1,0 +1,60 @@
+@import '~bootstrap/scss/bootstrap';
+
+.jumbotron--extend {
+    margin: 0 0 0 0;
+    height: 350px;
+    min-height: 100px;
+    background: url(/images/top.jpg) no-repeat center center;
+    background-size: cover;
+    position: relative;
+    h1{
+      position: relative;
+      width: 100%;
+      text-align: center;
+      color: white;
+      z-index: 1;
+    }
+    h3{
+      position: relative;
+      width: 100%;
+      text-align: center;
+      color: #d1d1d1;
+      z-index: 1;
+    }
+    form{
+      position: relative;
+      margin: 0 auto;
+      width:80%;
+      text-align: center;
+      z-index: 1;
+      input{
+
+      }
+    }
+}
+
+.jumbotron--extend::before{
+  /* 透過した黒を上から重ねるイメージ */
+  background-color: rgba(0,0,0,0.4);
+  /* 自由に位置指定 */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: ' ';
+}
+
+.info-bar{
+  margin-top: 0;
+  height: 60px;
+  padding-left: 20px;
+  background: #990000;
+  color: white;
+  font-size: 25px;
+  line-height: 60px;
+}
+
+.index_contents{
+  padding: 20px 20px 20px 20px;
+}
