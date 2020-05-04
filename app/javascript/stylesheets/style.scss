@@ -1,5 +1,15 @@
 @import '~bootstrap/scss/bootstrap';
 
+.navbar--extend{
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0 0 0 0;
+  width: 100%;
+  background-color:#800000;
+  z-index: 2;
+}
+
 .jumbotron--extend {
     margin: 0 0 0 0;
     height: 350px;
@@ -45,7 +55,7 @@
   content: ' ';
 }
 
-.info-bar{
+.index-info-bar{
   margin-top: 0;
   height: 60px;
   padding-left: 20px;
@@ -57,4 +67,14 @@
 
 .index_contents{
   padding: 20px 20px 20px 20px;
+}
+
+.mypage-info-bar{
+  margin-top: 0;
+  height: 60px;
+  padding-left: 20px;
+  background: #996633;
+  color: white;
+  font-size: 25px;
+  line-height: 60px;
 }

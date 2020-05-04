@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_23_144427) do
+ActiveRecord::Schema.define(version: 2020_05_04_054013) do
 
   create_table "activities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "trackable_type"
@@ -47,6 +47,16 @@ ActiveRecord::Schema.define(version: 2020_04_23_144427) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_creators_on_user_id"
+  end
+
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "sound_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["sound_id"], name: "index_likes_on_sound_id"
+    t.index ["user_id", "sound_id"], name: "index_likes_on_user_id_and_sound_id", unique: true
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "sound_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

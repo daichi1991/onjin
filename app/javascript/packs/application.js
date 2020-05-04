@@ -21,4 +21,6 @@ import 'bootstrap'
 import '../stylesheets/application.scss'
 import './test.js'
 import './postcode.js'
+import '@fortawesome/fontawesome-free/js/all';
+import Rails from '@rails/ujs';
 //import './soundtest.js'

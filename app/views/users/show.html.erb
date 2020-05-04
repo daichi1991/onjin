@@ -1,6 +1,19 @@
-<p>マイページ</p>
-<%= @user.id%>
+<div class="mypage-top">
+<%= @user.username%>さんのマイページ
+</div>
 
 <% unless @user.creator.nil? %>
   <%= link_to "クリエーター用ページ", creator_path(@user.creator.id) %>
 <% end %>
+
+<div class="mypage-info-bar">
+  最近ダウンロードしたサウンド
+</div>
+
+<div class="mypage-info-bar">
+  お気に入りのサウンド
+</div>
+
+<div class="mypage-info-bar">
+  プレイリスト
+</div>

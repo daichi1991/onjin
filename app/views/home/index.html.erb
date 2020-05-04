@@ -14,37 +14,19 @@
     </div>
 </div>
 
-<div class="info-bar">
-  人気BGMランキング
-</div>
-
-<div class="index_contents">
-  <% if @sounds != nil %>
-    <% @sounds.each do |sound| %>
-        <%= sound.title %>
-        <%= audio_tag("/uploads/sound/sound_file/#{sound.id}/#{sound.sound_file.identifier}", id: 'player', :controls => true, :controlslist => "nodownload" ) %>
-        <% sound.tag_list.each do |tag|%>
-          <span class="label label-primary"><%= tag %></span>
-        <% end %><br>
-        <%= link_to "ダウンロード", download_sound_path(sound) %><br>
-    <% end %>
-  <% end %>
-</div>
-
-
-<div class="info-bar">
+<div class="index-info-bar">
   人気効果音ランキング
 </div>
 
 <div class="index_contents">
-  <% if @sounds != nil %>
-    <% @sounds.each do |sound| %>
-        <%= sound.title %>
-        <%= audio_tag("/uploads/sound/sound_file/#{sound.id}/#{sound.sound_file.identifier}", id: 'player', :controls => true, :controlslist => "nodownload" ) %>
-        <% sound.tag_list.each do |tag|%>
-          <span class="label label-primary"><%= tag %></span>
-        <% end %><br>
-        <%= link_to "ダウンロード", download_sound_path(sound) %><br>
-    <% end %>
-  <% end %>
+<%= render 'sounds/sound' %>
+</div>
+
+
+<div class="index-info-bar">
+  人気BGMランキング
+</div>
+
+<div class="index_contents">
+<%= render 'sounds/soundb' %>
 </div>

@@ -43,7 +43,7 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
 
   private
     def confirm_params
-      params.require(resource_name).permit(:password, :password_confirmation)
-    end  
+      params.require(resource_name).permit(:username, :password, :password_confirmation)
+    end
 
 end

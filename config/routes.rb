@@ -34,6 +34,9 @@ Rails.application.routes.draw do
 
   resources :sound_types
 
+  resources :likes, only: [:create, :destroy]
+
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"

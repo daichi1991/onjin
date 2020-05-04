@@ -12,7 +12,7 @@
 
   <body>
 
-    <nav class="navbar navbar-expand-sm navbar-dark mb-2 navbar--extend" style="background-color:#800000;">
+    <nav class="navbar navbar-expand-sm navbar-dark mb-2 navbar--extend">
       <a href="/" class="navbar-brand">ONJIN</a>
 
       <button class="navbar-toggler" type="button"
@@ -36,8 +36,10 @@
               <%= link_to "マイページ", user_path(current_user.id), class: "nav-item nav-link" %>
             <% end %>
 
-            <% unless request.path.include?("creators/#{current_user.creator.id}")%>
-              <%= link_to "クリエーター用ページ", creator_path(current_user.creator.id), class: "nav-item nav-link" %>
+            <% unless current_user.creator.nil? %>
+              <% unless request.path.include?("creators/#{current_user.creator.id}")%>
+                <%= link_to "クリエーター用ページ", creator_path(current_user.creator.id), class: "nav-item nav-link" %>
+              <% end %>
             <% end %>
 
             <% if current_user.creator.nil? %>

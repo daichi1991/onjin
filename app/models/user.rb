@@ -35,6 +35,7 @@ class User < ApplicationRecord
          :validatable, :confirmable, :authentication_keys => [:login]
 
   has_one :creator
+  has_many :likes, dependent: :destroy
 
   def password_required?
    super if confirmed?
