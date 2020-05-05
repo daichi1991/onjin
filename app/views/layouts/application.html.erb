@@ -32,6 +32,9 @@
               </div>
           </form>
           <% if user_signed_in? %>
+            <div class="navbar-text">
+              <%= current_user.username %>
+            </div>
             <% unless request.path.include?("users/#{current_user.id}")%>
               <%= link_to "マイページ", user_path(current_user.id), class: "nav-item nav-link" %>
             <% end %>

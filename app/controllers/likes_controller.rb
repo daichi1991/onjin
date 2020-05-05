@@ -6,6 +6,7 @@ class LikesController < ApplicationController
     @sound = Sound.find(params[:sound_id])
     unless @sound.iine?(current_user)
       @sound.iine(current_user)
+      @sound.reload
       respond_to do |format|
         format.html { redirect_to request.referrer || root_url }
         format.js
@@ -17,6 +18,7 @@ class LikesController < ApplicationController
     @sound = Like.find(params[:id]).sound
     if @sound.iine?(current_user)
       @sound.uniine(current_user)
+      @sound.reload
       respond_to do |format|
         format.html { redirect_to request.referrer || root_url }
         format.js

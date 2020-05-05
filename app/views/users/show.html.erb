@@ -7,13 +7,17 @@
 <% end %>
 
 <div class="mypage-info-bar">
-  最近ダウンロードしたサウンド
-</div>
-
-<div class="mypage-info-bar">
   お気に入りのサウンド
 </div>
+<% if @likes.empty? %>
+なし
+<% end %>
+<%= render 'sounds/like_sound' %>
 
 <div class="mypage-info-bar">
-  プレイリスト
+  ダウンロードしたサウンド
 </div>
+<% if @downloads.empty? %>
+なし
+<% end %>
+<%= render 'sounds/download_sound' %>

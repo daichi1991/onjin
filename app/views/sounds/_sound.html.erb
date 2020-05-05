@@ -1,13 +1,15 @@
 <% if @sounds != nil %>
   <% @sounds.each do |sound| %>
     <div id="sound-<%=sound.id %>">
+      <%=link_to sound.creator.user.username,creator_path(sound.creator) %>
+
       <%= sound.title %>
       <%= audio_tag("/uploads/sound/sound_file/#{sound.id}/#{sound.sound_file.identifier}", id: 'player', :controls => true, :controlslist => "nodownload" ) %>
       <% sound.tag_list.each do |tag|%>
         <span class="label label-primary"><%= tag %></span>
       <% end %><br>
       <%= render "likes/like", sound: sound %>
-      <%= link_to "ダウンロード", download_sound_path(sound) %><br>
+      <%= link_to "ダウンロード", sound_downloads_path(sound), method: :post %><br>
     </div>
   <% end %>
 <% end %>

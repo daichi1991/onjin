@@ -1,6 +1,22 @@
-<%= @creator.id%>
+<% unless current_user.creator.nil? %>
+  <% if current_user.creator.id == @creator.id %>
+    <%= link_to "サウンド登録ページへ", new_sound_path %>
+  <% end %>
+<% end %>
 
-<%= link_to "サウンド登録ページへ", new_sound_path %>
+<div class="creator-page-info-bar">
+  ステータス
+</div>
+
+
+<table class="table">
+  <tr><td>いいねされた回数</td><td><%= @likes.count %></td></tr>
+  <tr><td>ダウンロードされた回数</td><td><%= @downloads.count %></td></tr>
+</table>
+
+<div class="creator-page-info-bar">
+  アクション履歴
+</div>
 
 <% if @sounds != nil %>
   <% @sounds.each do |sound| %>
