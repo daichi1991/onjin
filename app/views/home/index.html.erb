@@ -3,14 +3,6 @@
     <div class="container-fluid jumbotron-container">
       <h1 class="site-name">BGMや効果音を無料でダウンロード</h1>
       <h3>動画制作に最適な"音"が見つかる</h3>
-      <form class="form-extend">
-          <div class="input-group">
-            <input type="text" class="form-control" />
-            <div class="input-group-append">
-              <button type="submit" class="btn btn-warning">検索</button>
-            </div>
-          </div>
-      </form>
     </div>
 </div>
 
@@ -19,7 +11,7 @@
 </div>
 
 <div class="index_contents">
-<%= render 'sounds/sound' %>
+<%= render 'sounds/sound', sounds: @sounds %>
 </div>
 
 
@@ -28,5 +20,5 @@
 </div>
 
 <div class="index_contents">
-<%= render 'sounds/soundb' %>
+<%= render 'sounds/sound', sounds: @soundbs %>
 </div>

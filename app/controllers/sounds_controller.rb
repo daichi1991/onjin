@@ -33,6 +33,9 @@ class SoundsController < ApplicationController
   def destroy
   end
 
+  def index
+  end
+
   private
 
   def sound_params

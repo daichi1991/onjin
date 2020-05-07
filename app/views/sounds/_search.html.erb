@@ -1,0 +1,22 @@
+
+  <div class="input-group">
+    <%= search_form_for @q, url: sounds_path do |f| %>
+      <%= f.text_field :title_or_description_or_tags_name_or_creator_user_username_cont, class: 'form-control' ,placeholder: 'テキストを入力' %>
+
+      <span class="input-group-btn">
+        <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+    			<span class="caret">絞り込み</span>
+    		</button>
+
+        <ul class="dropdown-menu" role="menu">
+          <li><%= f.text_field :title_cont, placeholder: 'タイトルを入力' %></li>
+          <li><%= f.text_field :tags_name_cont, placeholder: 'タグを入力' %></li>
+          <li><%= f.collection_select  :type_id_eq, @sound_types, :id, :type_name, :include_blank => '指定なし' %></li>
+          <li><%= f.submit ("検索") , class: 'search-btn'%></li>
+        </ul>
+      </span>
+      <span class="input-group-btn">
+        <%= f.submit ("検索") , class: 'btn btn-secondary'%>
+      </span>
+    <% end %>
+  </div>

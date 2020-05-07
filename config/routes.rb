@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :sounds, only: [:new, :create] do
+  resources :sounds, only: [:new, :create, :index] do
     resources:downloads, only: [:create] do
     end
   end

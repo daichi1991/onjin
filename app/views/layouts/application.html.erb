@@ -25,12 +25,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navmenu1">
         <div class="navbar-nav">
-          <form class="form-inline">
-              <div class="form-group">
-                <input type="text" class="form-control" />
-                <button type="submit" class="btn btn-secondary">検索</button>
-              </div>
-          </form>
+
+          <%= render 'sounds/search' %>
+
           <% if user_signed_in? %>
             <div class="navbar-text">
               <%= current_user.username %>

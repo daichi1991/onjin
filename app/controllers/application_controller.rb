@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  before_action :set_search
+
   protected
 
   protected
@@ -15,4 +17,11 @@ class ApplicationController < ActionController::Base
     def after_sign_in_path_for(resource)
       user_path(resource.id)
     end
+
+    def set_search
+      @q = Sound.joins({:creator => :user}).ransack(params[:q])
+      @sound_types = SoundType.all
+      @results = @q.result(distinct: true)
+    end
+
 end

@@ -12,7 +12,7 @@
 <% if @likes.empty? %>
 なし
 <% end %>
-<%= render 'sounds/like_sound' %>
+<%= render 'sounds/sound', sounds: @likes %>
 
 <div class="mypage-info-bar">
   ダウンロードしたサウンド
@@ -20,4 +20,4 @@
 <% if @downloads.empty? %>
 なし
 <% end %>
-<%= render 'sounds/download_sound' %>
+<%= render 'sounds/sound', sounds: @downloads %>
