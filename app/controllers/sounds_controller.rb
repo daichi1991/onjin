@@ -1,5 +1,11 @@
 class SoundsController < ApplicationController
 
+  def index
+    if params[:tag_name]
+      @results = Sound.tagged_with("#{params[:tag_name]}")
+    end
+  end
+
   def new
     @user = current_user
     @sound = Sound.new
@@ -33,8 +39,7 @@ class SoundsController < ApplicationController
   def destroy
   end
 
-  def index
-  end
+
 
   private
 

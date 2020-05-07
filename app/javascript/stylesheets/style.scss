@@ -5,7 +5,6 @@
   top: 0;
   left: 0;
   margin: 0 0 0 0;
-  height: 100px;
   width: 100%;
   background-color:#800000;
   z-index: 2;
@@ -97,4 +96,42 @@
 .download-black{
   text-decoration: none;
   color: black;
+}
+
+.sound-container{
+  padding: 5px 5px 5px 5px;
+}
+
+.sound-container-block{
+  display: block;
+  padding: 0px 5px 5px 0px;
+}
+
+.sound-container-inline-block{
+  display: inline-block;
+  padding: 0px 5px 5px 0px;
+}
+
+.sound-container-artist{
+  padding: 0px 5px 5px 0px;
+}
+
+.sound-container-title{
+  padding: 0px 5px 5px 0px;
+  font-size: 24px;
+}
+
+.sound-container-tags{
+  display: inline;
+  position: static;
+  padding: 0px 5px 5px 0px;
+}
+
+.sound-container-player{
+}
+
+.sound-container-like{
+}
+
+.sound-container-download{
 }

@@ -23,10 +23,11 @@
           aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      <%= render 'sounds/search' %>
       <div class="collapse navbar-collapse" id="navmenu1">
         <div class="navbar-nav">
 
-          <%= render 'sounds/search' %>
+
 
           <% if user_signed_in? %>
             <div class="navbar-text">
@@ -56,6 +57,7 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
+    <br><br><br><br>
     <%= yield %>
 
   </body>
