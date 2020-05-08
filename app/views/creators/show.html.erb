@@ -15,15 +15,7 @@
 </table>
 
 <div class="creator-page-info-bar">
-  アクション履歴
+  アップロード履歴
 </div>
 
-<% if @sounds != nil %>
-  <% @sounds.each do |sound| %>
-      <%= sound.title %>
-      <% sound.tag_list.each do |tag|%>
-        <span class="label label-primary"><%= tag %></span>
-      <% end %><br>
-      <%= audio_tag("/uploads/sound/sound_file/#{sound.id}/#{sound.sound_file.identifier}", id: 'player', :controls => true) %>
-  <% end %>
-<% end %>
+<%= render 'sounds/sound', sounds: @sounds %>

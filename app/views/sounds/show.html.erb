@@ -1,28 +1,26 @@
-<% if sounds != nil %>
-  <div class="sound-container">
-    <% sounds.each do |sound| %>
-      <div id="sound-<%=sound.id %>">
 
+  <div class="sound-container">
+      <div id="sound-<%=@sound.id %>">
         <div class="sound-container-block">
           <div class="sound-container-inline-block">
 
             <div class="sound-container-artist">
-              <%=link_to sound.creator.user.username,creator_path(sound.creator) %>
+              <%=link_to @sound.creator.user.username,creator_path(@sound.creator) %>
             </div>
             <div class="sound-container-title">
-              <%= link_to sound.title, sound_path(sound.id) %>
+              <%= @sound.title %>
             </div>
 
           </div>
 
           <div class="sound-container-inline-block">
             <div class="sound-container-description">
-              <%= sound.description %>
+              <%= @sound.description %>
             </div>
 
 
             <div class="sound-container-tags">
-              <% sound.tag_list.each do |tag|%>
+              <% @sound.tag_list.each do |tag|%>
                 <span class="label label-primary">
                   <%= link_to "##{tag}", sounds_path(tag_name: tag) %>
                 </span>
@@ -34,25 +32,22 @@
         <div class="sound-container-block">
           <div class="sound-container-inline-block">
             <div class="sound-container-player">
-              <%= audio_tag("/uploads/sound/sound_file/#{sound.id}/#{sound.sound_file.identifier}", id: 'player', :controls => true, :controlslist => "nodownload" ) %>
+              <%= audio_tag("/uploads/sound/sound_file/#{@sound.id}/#{@sound.sound_file.identifier}", id: 'player', :controls => true, :controlslist => "nodownload" ) %>
             </div>
           </div>
 
 
           <div class="sound-container-inline-block">
-              <%= render "likes/like", sound: sound %>
+              <%= render "likes/like", sound: @sound %>
           </div>
           <div class="sound-container-inline-block">
             <span class="sound-container-download">
-              <%= link_to sound_downloads_path(sound),class: "dl-form", method: :post do%>
+              <%= link_to sound_downloads_path(@sound),class: "dl-form", method: :post do%>
                 <i class="fas fa-download download-black"></i>
               <% end %>
-              <%= sound.downloads_count %>
+              <%= @sound.downloads_count %>
             </span>
           </div>
         </div>
       </div>
-    <% end %>
-
   </div>
-<% end %>

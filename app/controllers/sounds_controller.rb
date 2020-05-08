@@ -6,6 +6,10 @@ class SoundsController < ApplicationController
     end
   end
 
+  def show
+    @sound = Sound.includes([:creator, :likes, :downloads ]).joins(creator: :user ).find_by(:sounds => {:id => params[:id]})
+  end
+
   def new
     @user = current_user
     @sound = Sound.new
