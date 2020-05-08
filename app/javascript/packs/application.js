@@ -17,10 +17,11 @@ require("jquery/dist/jquery")
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-import 'bootstrap'
+import "bootstrap-honoka/dist/css/bootstrap.min.css"
+import "bootstrap-honoka/dist/js/bootstrap.min.js"
 import '../stylesheets/application.scss'
 import './test.js'
 import './postcode.js'
-import '@fortawesome/fontawesome-free/js/all';
+import '@fortawesome/fontawesome-free/js/all'
 import Rails from '@rails/ujs';
 //import './soundtest.js'
