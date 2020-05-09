@@ -24,4 +24,5 @@ import './test.js'
 import './postcode.js'
 import '@fortawesome/fontawesome-free/js/all'
 import Rails from '@rails/ujs';
+import './audio_player.js'
 //import './soundtest.js'

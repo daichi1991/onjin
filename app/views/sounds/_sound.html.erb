@@ -1,7 +1,7 @@
 <% if sounds != nil %>
   <div class="sound-container">
     <% sounds.each do |sound| %>
-      <div id="sound-<%=sound.id %>">
+      <div id="sound-content-<%=sound.id %>">
 
         <div class="sound-container-block">
           <div class="sound-container-inline-block">
@@ -37,6 +37,14 @@
               <%= audio_tag("/uploads/sound/sound_file/#{sound.id}/#{sound.sound_file.identifier}", id: 'player', :controls => true, :controlslist => "nodownload" ) %>
             </div>
           </div>
+
+          <%= audio_tag("/uploads/sound/sound_file/#{sound.id}/#{sound.sound_file.identifier}", id: "audiofile#{sound.id}") %>
+
+          <button data-playing="false" role="switch" aria-checked="false" id='playbtn<%= sound.id %>'>
+              <span>Play/Pause</span>
+          </button>
+
+          <canvas id="visualizer<%= sound.id %>" height="100"></canvas>
 
 
           <div class="sound-container-inline-block">
