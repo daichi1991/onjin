@@ -54,6 +54,7 @@
     </nav>
 
     <script type="text/javascript" src="//jpostal-1006.appspot.com/jquery.jpostal.js"></script>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
@@ -61,4 +62,10 @@
     <%= yield %>
 
   </body>
+  <script>
+      $( function(){
+          $( 'audio' ).audioPlayer();
+      });
+  </script>
+
 </html>

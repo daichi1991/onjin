@@ -32,20 +32,8 @@
         </div>
 
         <div class="sound-container-block">
-          <div class="sound-container-inline-block">
-            <div class="sound-container-player">
-              <%= audio_tag("/uploads/sound/sound_file/#{sound.id}/#{sound.sound_file.identifier}", id: 'player', :controls => true, :controlslist => "nodownload" ) %>
-            </div>
-          </div>
 
-          <%= audio_tag("/uploads/sound/sound_file/#{sound.id}/#{sound.sound_file.identifier}", id: "audiofile#{sound.id}") %>
-
-          <button data-playing="false" role="switch" aria-checked="false" id='playbtn<%= sound.id %>'>
-              <span>Play/Pause</span>
-          </button>
-
-          <canvas id="visualizer<%= sound.id %>" height="100"></canvas>
-
+          <audio src="/uploads/sound/sound_file/<%=sound.id%>/<%=sound.sound_file.identifier%>", id = "audiofile<%= sound.id %>"></audio>
 
           <div class="sound-container-inline-block">
               <%= render "likes/like", sound: sound %>
