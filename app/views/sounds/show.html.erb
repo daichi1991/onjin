@@ -30,20 +30,23 @@
         </div>
 
         <div class="sound-container-block">
-          <div class="sound-container-inline-block">
-            <div class="sound-container-player">
-              <%= audio_tag("/uploads/sound/sound_file/#{@sound.id}/#{@sound.sound_file.identifier}", id: 'player', :controls => true, :controlslist => "nodownload" ) %>
-            </div>
-          </div>
 
+          <audio src="/uploads/sound/sound_file/<%=@sound.id%>/<%=@sound.sound_file.identifier%>", id = "audiofile<%= @sound.id %>"></audio>
 
           <div class="sound-container-inline-block">
               <%= render "likes/like", sound: @sound %>
           </div>
           <div class="sound-container-inline-block">
             <span class="sound-container-download">
-              <%= link_to sound_downloads_path(@sound),class: "dl-form", method: :post do%>
-                <i class="fas fa-download download-black"></i>
+              <% if user_signed_in? %>
+                <%= link_to sound_downloads_path(@sound),class: "dl-form", method: :post do%>
+                  <i class="fas fa-download download-black"></i>
+                <% end %>
+              <% else %>
+                <%= link_to '', class: "nav-link", "data-toggle": "modal", "data-target": "#signinModal" do %>
+                　<% sign_in_message = "ログインが必要" %>
+                  <i class="fas fa-download download-black"></i>
+                <% end %>
               <% end %>
               <%= @sound.downloads_count %>
             </span>

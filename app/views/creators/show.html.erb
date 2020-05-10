@@ -1,6 +1,8 @@
-<% unless current_user.creator.nil? %>
-  <% if current_user.creator.id == @creator.id %>
-    <%= link_to "サウンド登録ページへ", new_sound_path %>
+<% if user_signed_in? %>
+  <% unless current_user.creator.nil? %>
+    <% if current_user.creator.id == @creator.id %>
+      <%= link_to "サウンド登録ページへ", new_sound_path %>
+    <% end %>
   <% end %>
 <% end %>
 

@@ -1,6 +1,5 @@
 class CreatorsController < ApplicationController
 
-  before_action :authenticate_user!
   before_action :creator_params, only: [:confirm]
 
   def new

@@ -2,20 +2,31 @@
 <% unless current_user == sound.creator.user %>
   <span class="like">
     <% if sound.iine?(current_user) %>
-      <%= form_for(sound.likes.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
-        <%= button_tag(class: "btn btn-default btn-xs") do %>
-          <i class="fas fa-heart"></i>
-          <%= sound.likes_count %>
+      <% if user_signed_in? %>
+        <%= form_for(sound.likes.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
+          <%= button_tag(class: "btn btn-default btn-xs") do %>
+            <i class="fas fa-heart"></i>
+          <% end %>
+        <% end %>
+      <% else %>
+        <%= link_to '', class: "nav-link", "data-toggle": "modal", "data-target": "#signinModal" do %>
+          <i class="fas fa-heart heart-black"></i>
         <% end %>
       <% end %>
     <% else %>
-      <%= form_for(sound.likes.build, remote: true) do |f| %>
-        <div><%= hidden_field_tag :sound_id, sound.id %></div>
-        <%= button_tag(class: "btn btn-default btn-xs") do %>
-        <i class="far fa-heart"></i>
-          <%= sound.likes_count %>
+      <% if user_signed_in? %>
+        <%= form_for(sound.likes.build, remote: true) do |f| %>
+          <div><%= hidden_field_tag :sound_id, sound.id %></div>
+          <%= button_tag(class: "btn btn-default btn-xs") do %>
+          <i class="far fa-heart"></i>
+          <% end %>
+        <% end %>
+      <% else %>
+        <%= link_to '', class: "nav-link", "data-toggle": "modal", "data-target": "#signinModal" do %>
+          <i class="far fa-heart heart-black"></i>
         <% end %>
       <% end %>
     <% end %>
+    <%= sound.likes_count %>
   </span>
 <% end %>

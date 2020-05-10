@@ -48,10 +48,64 @@
             <% end %>
 
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-item nav-link" %>
+          <% else%>
+              <%= link_to '', class: "nav-link", "data-toggle": "modal", "data-target": "#signinModal" do %>
+                ログイン
+              <% end %>
           <% end %>
         </div>
       </div>
     </nav>
+
+    <div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin: 200px auto; height: 700px;">
+    <!--以下modal-dialogのCSSの部分で modal-lgやmodal-smを追加するとモーダルのサイズを変更することができる-->
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="Modal">ログインしてください</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="field">
+              <%= f.label :login %><br />
+              <%= f.text_field :login, autofocus: true, autocomplete: "login" %>
+            </div>
+
+            <div class="field">
+              <%= f.label :password %><br />
+              <%= f.password_field :password, autocomplete: "current-password" %>
+            </div>
+
+            <% if devise_mapping.rememberable? %>
+              <div class="field">
+                <%= f.check_box :remember_me %>
+                <%= f.label :remember_me %>
+              </div>
+            <% end %>
+
+            <%= f.hidden_field :url, value: request.fullpath %>
+
+            <div class="actions">
+              <%= f.submit "ログイン" %>
+            </div>
+          <% end %>
+
+          <%= render "users/shared/links_sign_in" %>
+
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
     <script type="text/javascript" src="//jpostal-1006.appspot.com/jquery.jpostal.js"></script>
 
