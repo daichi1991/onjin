@@ -9,6 +9,9 @@
             <div class="sound-container-artist">
               <%=link_to sound.creator.user.username,creator_path(sound.creator) %>
             </div>
+            <% if sound.creator.user.image? %>
+               <%= image_tag(sound.creator.user.image.thumb50.url) %>
+            <% end %>
             <div class="sound-container-title">
               <%= link_to sound.title, sound_path(sound.id) %>
             </div>

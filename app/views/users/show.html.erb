@@ -6,6 +6,10 @@
   <%= link_to "クリエーター用ページ", creator_path(@user.creator.id) %>
 <% end %>
 
+<% if @user.image? %>
+   <%= image_tag(current_user.image.thumb.url) %>
+<% end %>
+
 <div class="mypage-info-bar">
   お気に入りのサウンド
 </div>

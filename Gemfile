@@ -52,6 +52,7 @@ gem 'whenever', require: false
 
 # for file upload
 gem 'carrierwave'
+gem 'mini_magick'
 
 # for user
 gem 'devise'
