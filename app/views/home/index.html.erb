@@ -6,19 +6,33 @@
     </div>
 </div>
 
-<div class="index-info-bar">
-  人気効果音ランキング
-</div>
-
-<div class="index_contents">
-<%= render 'sounds/sound', sounds: @sounds %>
-</div>
 
 
-<div class="index-info-bar">
-  人気BGMランキング
-</div>
+  <div class="row">
 
-<div class="index_contents">
-<%= render 'sounds/sound', sounds: @soundbs %>
-</div>
+    <div class="col-lg-10">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          <div class="index-info-bar">
+            人気効果音ランキング
+          </div>
+          <div class="index_contents">
+          <%= render 'sounds/sound', sounds: @sounds %>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <div class="index-info-bar">
+            人気BGMランキング
+          </div>
+          <div class="index_contents">
+          <%= render 'sounds/sound', sounds: @soundbs %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-2">
+      <%= render 'home/side_menu', sounds: @sounds %>
+    </div>
+
+  </div>

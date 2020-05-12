@@ -5,9 +5,16 @@
   top: 0;
   left: 0;
   margin: 0 0 0 0;
+  height: 100px;
   width: 100%;
   background-color:#800000;
   z-index: 2;
+}
+
+.custome-container{
+  position: relative;
+  top: 43px;
+  margin-top: 0;
 }
 
 .jumbotron--extend {
@@ -100,7 +107,7 @@
 
 .heart-black{
   text-decoration: none;
-  color: black;  
+  color: black;
 }
 
 .sound-container{
