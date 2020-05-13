@@ -37,7 +37,7 @@ class CreatorsController < ApplicationController
 
   def show
     @creator = Creator.find_by(id: params[:id])
-    @sounds = Sound.includes([:creator, :likes, :downloads ]).joins(creator: :user ).where(creator_id: @creator.id)
+    @sounds = Sound.includes([:creator, :likes, :downloads ]).joins(creator: :user ).where(creator_id: @creator.id).page(params[:page]).per(1)
     @likes = Sound.joins(:likes).where(sounds: { creator_id: @creator.id })
     @downloads = Sound.joins(:downloads).where(sounds: { creator_id: @creator.id })
   end

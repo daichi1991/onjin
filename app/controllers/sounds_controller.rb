@@ -2,7 +2,7 @@ class SoundsController < ApplicationController
 
   def index
     if params[:tag_name]
-      @results = Sound.tagged_with("#{params[:tag_name]}")
+      @results = Sound.tagged_with("#{params[:tag_name]}").page(params[:page]).without_count.per(5)
     end
   end
 
