@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
     def set_search
       @q = Sound.joins({:creator => :user}).ransack(params[:q])
       @sound_types = SoundType.all
-      @results = @q.result(distinct: true).page(params[:page]).without_count.per(5)
+      @results = @q.result(distinct: true).page(params[:page]).without_count.per(1)
     end
 
     def storable_location?

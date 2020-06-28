@@ -1,6 +1,26 @@
+クリエーター情報<br>
+<% if @creator.user.image? %>
+   <%= image_tag(@creator.user.image.thumb.url) %><br>
+<% end %>
+
+<%= @creator.user.username %><br>
+
 <% if user_signed_in? %>
   <% unless current_user.creator.nil? %>
     <% if current_user.creator.id == @creator.id %>
+      クリエーター情報詳細（他ユーザーからは閲覧できません）<br>
+      氏名<br>
+      <%= @creator.last_name %>
+      <%= @creator.first_name %><br>
+      電話番号<br>
+      <%= @creator.phone_number%><br>
+      住所<br>
+      〒<%= @creator.postcode %><br>
+      <%= @creator.prefecture_name%>
+      <%= @creator.address_city%>
+      <%= @creator.address_street%>
+      <%= @creator.address_building%><br>
+      <%= link_to "編集", edit_creator_path %>
       <%= link_to "サウンド登録ページへ", new_sound_path %>
     <% end %>
   <% end %>
@@ -9,7 +29,6 @@
 <div class="creator-page-info-bar">
   ステータス
 </div>
-
 
 <table class="table">
   <tr><td>いいねされた回数</td><td><%= @likes.count %></td></tr>

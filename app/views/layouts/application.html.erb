@@ -117,12 +117,16 @@
       <%= yield %>
 
     </div>
-
+    <script src="jquery.js"></script>
+    <script src="audioplayer.js"></script>
+    <script>
+        $( function()
+        {
+            $( 'audio' ).audioPlayer();
+        });
+    </script>
   </body>
-  <script>
-      $( function(){
-          $( 'audio' ).audioPlayer();
-      });
-  </script>
+
+
 
 </html>

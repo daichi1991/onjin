@@ -2,13 +2,26 @@
 <%= @user.username%>さんのマイページ
 </div>
 
-<% unless @user.creator.nil? %>
-  <%= link_to "クリエーター用ページ", creator_path(@user.creator.id) %>
-<% end %>
+
+
+ユーザー情報<br>
 
 <% if @user.image? %>
-   <%= image_tag(current_user.image.thumb.url) %>
+   <%= image_tag(@user.image.thumb.url) %>
 <% end %>
+
+<%= @user.username %><br>
+  <% if @user.id = current_user.id %>
+<%= @user.email %><br>
+
+<% end %>
+
+<% unless @user.creator.nil? %>
+  クリエーター<br>
+  <%= link_to "クリエーター用ページへ", creator_path(@user.creator.id) %>
+<% end %>
+
+  <%= link_to "編集", edit_user_registration_path %>
 
 <div class="mypage-info-bar">
   お気に入りのサウンド

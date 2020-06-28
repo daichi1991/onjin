@@ -29,7 +29,14 @@ class CreatorsController < ApplicationController
     end
   end
 
+  def edit
+    @creator = Creator.find(params[:id])
+  end
+
   def update
+    @creator = Creator.find(params[:id])
+    @creator.update(creator_params)
+    redirect_to creator_path
   end
 
   def destroy
@@ -45,7 +52,7 @@ class CreatorsController < ApplicationController
 private
 
   def creator_params
-    params.permit(:user_id, :first_name, :last_name, :first_name_kana, :last_name_kana, :birthday, :phone_number, :postcode, :prefecture_code,:address_city, :address_street, :address_building )
+    params.require(:creator).permit(:user_id, :first_name, :last_name, :first_name_kana, :last_name_kana, :birthday, :phone_number, :postcode, :prefecture_code,:address_city, :address_street, :address_building )
   end
 
 end
