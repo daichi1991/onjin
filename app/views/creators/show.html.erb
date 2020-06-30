@@ -22,10 +22,11 @@
       <%= @creator.address_building%><br>
       <%= link_to "編集", edit_creator_path %>
       <%= link_to "サウンド登録ページへ", new_sound_path %>
+
     <% end %>
   <% end %>
 <% end %>
-
+<%= link_to "オーダーページへ", price_list_creator_path(@creator.id) %>
 <div class="creator-page-info-bar">
   ステータス
 </div>

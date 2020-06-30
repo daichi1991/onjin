@@ -25,8 +25,11 @@
 class Creator < ApplicationRecord
 
   belongs_to :user
-  has_one :sound, dependent: :destroy
-
+  has_many :sounds, dependent: :destroy
+  has_many :estimates
+  has_many :order_sounds
+  has_many :orders
+  has_one :price_list
 
   validates :user_id, :first_name, :last_name, :first_name_kana, :last_name_kana, :birthday, :phone_number, :postcode, :prefecture_code, :address_city, :address_street,  presence: true
 

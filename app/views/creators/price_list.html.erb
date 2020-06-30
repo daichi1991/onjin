@@ -1,0 +1,14 @@
+価格表
+<% if user_signed_in? %>
+  <% unless current_user.creator.nil? %>
+    <% if current_user.creator.id == @creator.id %>
+      <% if @price_list.nil? %>
+        <%= link_to "価格リストを作成する", new_price_list_path %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<% unless @price_list.nil? %>
+  <%= simple_format(@price_list.description) %>
+<% end %>

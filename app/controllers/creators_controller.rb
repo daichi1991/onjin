@@ -49,6 +49,11 @@ class CreatorsController < ApplicationController
     @downloads = Sound.joins(:downloads).where(sounds: { creator_id: @creator.id })
   end
 
+  def price_list
+    @creator = Creator.find_by(id: params[:id])
+    @price_list = PriceList.find_by(creator_id: params[:id])
+  end
+
 private
 
   def creator_params

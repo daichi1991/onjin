@@ -1,0 +1,2 @@
+class OrderSoundsController < ApplicationController
+end
